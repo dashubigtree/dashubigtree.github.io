@@ -34,6 +34,13 @@ class PortfolioSiteTests(unittest.TestCase):
         self.assertIn("case-studies/ecommerce-behavior-analysis.html", contents)
         self.assertIn("電商行為資料與文案分析", contents)
 
+    def test_home_page_has_personal_introduction(self):
+        contents = (ROOT / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn("我是徐澍萭（Benson）", contents)
+        self.assertIn("LLM、RAG 與 AI Agent", contents)
+        self.assertIn("金融業知識庫問答與防詐資料分析", contents)
+
 
 if __name__ == "__main__":
     unittest.main()
