@@ -48,6 +48,19 @@ class PortfolioSiteTests(unittest.TestCase):
         self.assertIn('class="project-status"', contents)
         self.assertIn('專案狀態：進行中', contents)
 
+    def test_projects_appear_in_the_intended_order(self):
+        contents = (ROOT / "index.html").read_text(encoding="utf-8")
+        expected_titles = [
+            "Badminton CV",
+            "電商行為資料與文案分析",
+            "Agentic AI &amp; RAG",
+            "BERTopic 文字主題建模",
+            "AICUP 2025 Table Tennis",
+        ]
+
+        positions = [contents.index(title) for title in expected_titles]
+        self.assertEqual(positions, sorted(positions))
+
 
 if __name__ == "__main__":
     unittest.main()
