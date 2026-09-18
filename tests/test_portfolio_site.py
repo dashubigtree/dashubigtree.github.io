@@ -71,6 +71,14 @@ class PortfolioSiteTests(unittest.TestCase):
 
         self.assertIn("<h1>用資料理解問題<br />用技術把想法實現</h1>", contents)
 
+    def test_home_section_labels_have_a_larger_but_subordinate_size(self):
+        styles = (ROOT / "styles.css").read_text(encoding="utf-8")
+
+        self.assertIn(
+            ".intro .kicker, .capabilities-head .kicker, .section-head .kicker { font-size: .88rem; }",
+            styles,
+        )
+
     def test_home_page_has_four_project_backed_capabilities(self):
         contents = (ROOT / "index.html").read_text(encoding="utf-8")
 
