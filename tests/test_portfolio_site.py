@@ -41,6 +41,15 @@ class PortfolioSiteTests(unittest.TestCase):
         self.assertIn("LLM、RAG 與 AI Agent", contents)
         self.assertIn("金融業知識庫問答與防詐資料分析", contents)
 
+    def test_home_page_has_four_project_backed_capabilities(self):
+        contents = (ROOT / "index.html").read_text(encoding="utf-8")
+
+        self.assertEqual(contents.count('class="capability-card"'), 4)
+        self.assertIn("LLM &amp; RAG 系統", contents)
+        self.assertIn("資料分析 &amp; 機器學習", contents)
+        self.assertIn("自然語言處理 &amp; 文字探勘", contents)
+        self.assertIn("電腦視覺 &amp; 運動科技", contents)
+
     def test_badminton_project_is_marked_in_progress(self):
         contents = (ROOT / "index.html").read_text(encoding="utf-8")
 
