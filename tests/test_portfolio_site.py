@@ -41,6 +41,13 @@ class PortfolioSiteTests(unittest.TestCase):
         self.assertIn("LLM、RAG 與 AI Agent", contents)
         self.assertIn("金融業知識庫問答與防詐資料分析", contents)
 
+    def test_badminton_project_is_marked_in_progress(self):
+        contents = (ROOT / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn('<h3>Badminton CV</h3>', contents)
+        self.assertIn('class="project-status"', contents)
+        self.assertIn('專案狀態：進行中', contents)
+
 
 if __name__ == "__main__":
     unittest.main()
