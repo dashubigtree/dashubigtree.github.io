@@ -41,6 +41,11 @@ class PortfolioSiteTests(unittest.TestCase):
         self.assertIn("LLM、RAG 與 AI Agent", contents)
         self.assertIn("金融業知識庫問答與防詐資料分析", contents)
 
+    def test_home_page_has_requested_two_line_title(self):
+        contents = (ROOT / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn("<h1>用資料理解問題<br />用技術把想法實現</h1>", contents)
+
     def test_home_page_has_four_project_backed_capabilities(self):
         contents = (ROOT / "index.html").read_text(encoding="utf-8")
 
