@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="電商行為資料與文案分析：以瀏覽、訂單、RFM 與文字特徵理解高價值客群。" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>電商行為資料與文案分析 | dashubigtree</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到主要內容</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="../index.html" aria-label="回到作品集首頁">dashubigtree<span>.</span></a>
+      <nav aria-label="主要導覽">
+        <a href="../index.html#projects">作品</a>
+        <a href="#method">方法</a>
+        <a href="#findings">發現</a>
+        <a href="https://github.com/dashubigtree" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section class="case-hero wrap">
+        <p class="kicker">商業資料分析 · 課堂團隊案例</p>
+        <p class="eyebrow">CASE STUDY 01</p>
+        <h1>從商品瀏覽到文案洞察，<br />理解高價值客群。</h1>
+        <p class="lead">以線上行為、訂單、RFM 分群與商品文案為線索，建立可解釋的分析流程，探索更貼近高價值客群的商品溝通方向。</p>
+        <div class="case-notice" role="note">
+          <strong>揭露說明</strong>
+          <p>本頁為課堂團隊案例的去識別化整理。原始資料、完整程式碼與原始簡報未公開；文中結論為分析洞察與後續驗證假設，並非已證實的商業成效。</p>
+        </div>
+      </section>
+
+      <section class="case-summary wrap" aria-label="案例摘要">
+        <div><p class="summary-label">商業問題</p><p>單一行銷話術難以回應不同客群，尤其難以有效溝通高價值會員。</p></div>
+        <div><p class="summary-label">分析目標</p><p>找出與高價值客群真實購買相關的商品與文案特徵。</p></div>
+        <div><p class="summary-label">資料範圍</p><p>訂單、會員、線上行為歷程、客群標籤與商品頁文本。</p></div>
+      </section>
+
+      <section class="case-section wrap" id="method" aria-labelledby="method-title">
+        <p class="kicker">分析方法</p>
+        <h2 id="method-title">以五個步驟，<br />縮小從瀏覽到決策的距離。</h2>
+        <ol class="method-list">
+          <li><div class="method-number">01</div><div><h3>深度瀏覽識別</h3><p>從 <code>viewproduct</code> 行為出發，以同一訪客的下一筆事件時間估算停留秒數；將停留超過 30 秒的商品瀏覽，視為較具意圖的深度瀏覽。</p></div></li>
+          <li><div class="method-number">02</div><div><h3>真實轉換驗證</h3><p>將深度瀏覽與訂單串接，確認「先瀏覽、後下單」的時間順序，並限定完成且未退貨的交易，以降低純瀏覽與無效交易的干擾。</p></div></li>
+          <li><div class="method-number">03</div><div><h3>RFM 客群分群</h3><p>以近期購買（R）、購買頻率（F）與消費金額（M）描述會員價值，將會員區分為高價值、一般與低活躍／流失客群。</p></div></li>
+          <li><div class="method-number">04</div><div><h3>高價值主導商品與關鍵字</h3><p>保留高價值客群購買占比較高的商品，再用覆蓋率、類別提升度（Lift）與 TF-IDF 綜合排序，排除「免運、現貨、特價」等平台通用詞。</p></div></li>
+          <li><div class="method-number">05</div><div><h3>LLM 結構化文案分析</h3><p>以固定 JSON 欄位，分批擷取標題句型、訴求類型、關鍵字角色與文案規律；再以 Python 統計彙整，形成跨品類洞察。</p></div></li>
+        </ol>
+      </section>
+
+      <section class="case-section wrap formula-section" aria-labelledby="metric-title">
+        <p class="kicker">指標設計</p>
+        <h2 id="metric-title">不只找常出現的詞，<br />而是找對高價值客群更有辨識度的詞。</h2>
+        <div class="metric-grid">
+          <article><h3>類別提升度</h3><p>比較詞彙在高價值客群與非高價值客群主導商品中的出現比例；數值越高，代表該詞對高價值客群越具專屬性。</p><code>Lift = coverage_hv / coverage_non_hv</code></article>
+          <article><h3>綜合評分</h3><p>將文字重要性與客群專屬性標準化後整合，作為關鍵字排序依據。</p><code>score = Z(TF-IDF) + Z(log Lift)</code></article>
+        </div>
+      </section>
+
+      <section class="case-section findings-section" id="findings" aria-labelledby="findings-title">
+        <div class="wrap">
+          <p class="kicker">分析發現</p>
+          <h2 id="findings-title">高價值客群的決策，<br />傾向需要更具體的理由。</h2>
+          <div class="finding-grid">
+            <article><span>01</span><h3>理性資訊</h3><p>成分、配方、作用機制與具體數據，有助於讓商品價值更容易被理解。</p></article>
+            <article><span>02</span><h3>安全感建立</h3><p>認證、專利、產地與無添加等資訊，可降低決策風險並支撐產品信任。</p></article>
+            <article><span>03</span><h3>明確效益</h3><p>將商品效益對應到具體痛點、受眾或使用情境，能讓溝通更加聚焦。</p></article>
+          </div>
+          <blockquote>較具潛力的溝通結構：<br /><strong>理性資訊 + 安全感建立 + 明確效益與決策引導</strong></blockquote>
+        </div>
+      </section>
+
+      <section class="case-section wrap" aria-labelledby="next-title">
+        <p class="kicker">後續應用與限制</p>
+        <h2 id="next-title">把洞察當作假設，<br />留給下一次實驗驗證。</h2>
+        <div class="two-column-copy">
+          <div><h3>可延伸的應用</h3><ul><li>依客群建立差異化商品文案版本</li><li>將商品關鍵字與推薦情境結合</li><li>以 A/B Test 驗證瀏覽、加購與購買轉換差異</li></ul></div>
+          <div><h3>分析限制</h3><ul><li>線上行為無法完整反映線下購買</li><li>Session 尾端事件無法估算停留時間</li><li>分群標籤具有時間窗口限制</li><li>原始資料與程式碼未公開，無法直接重現</li></ul></div>
+        </div>
+      </section>
+
+      <section class="case-cta wrap">
+        <p>這是一份課堂團隊案例的去識別化呈現。</p>
+        <a class="primary-link" href="../index.html#projects">回到精選作品 <span>←</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <p>dashubigtree · AI × Data × Sports Technology</p>
+      <a href="#content">回到頁首 ↑</a>
+    </footer>
+  </body>
+</html>
