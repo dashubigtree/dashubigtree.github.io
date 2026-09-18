@@ -75,7 +75,7 @@ class PortfolioSiteTests(unittest.TestCase):
         styles = (ROOT / "styles.css").read_text(encoding="utf-8")
 
         self.assertIn(
-            ".intro .kicker, .capabilities-head .kicker, .section-head .kicker { font-size: .88rem; }",
+            ".intro .kicker, .capabilities-head .kicker, .section-head .kicker { font-size: .98rem; }",
             styles,
         )
 
