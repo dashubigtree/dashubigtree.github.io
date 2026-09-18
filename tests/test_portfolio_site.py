@@ -50,6 +50,16 @@ class PortfolioSiteTests(unittest.TestCase):
         self.assertIn("自然語言處理 &amp; 文字探勘", contents)
         self.assertIn("電腦視覺 &amp; 運動科技", contents)
 
+    def test_header_has_only_github_and_linkedin_links(self):
+        contents = (ROOT / "index.html").read_text(encoding="utf-8")
+        header = contents[contents.index("<header") : contents.index("</header>")]
+
+        self.assertIn("https://github.com/dashubigtree", header)
+        self.assertIn("https://www.linkedin.com/in/%E6%BE%8D%E8%90%AD-%E5%BE%90-bensonhsu", header)
+        self.assertNotIn('href="#projects"', header)
+        self.assertNotIn('href="#about"', header)
+        self.assertNotIn("case-studies/ecommerce-behavior-analysis.html", header)
+
     def test_badminton_project_is_marked_in_progress(self):
         contents = (ROOT / "index.html").read_text(encoding="utf-8")
 
