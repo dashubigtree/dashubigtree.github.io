@@ -2,7 +2,7 @@
 
 這是獨立的個人經歷與公開作品集網站，展示四個專案：Badminton CV、AICUP 2025 Table Tennis、Agentic AI & RAG，以及 BERTopic。
 
-網站檔案位於 `dist/`：
+網站檔案位於專案根目錄：
 
 - `index.html`：頁面內容與專案連結。
 - `styles.css`：簡約、可在手機與桌面閱讀的樣式。
