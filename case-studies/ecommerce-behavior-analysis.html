@@ -13,10 +13,8 @@
     <header class="site-header wrap">
       <a class="wordmark" href="../index.html" aria-label="回到作品集首頁">dashubigtree<span>.</span></a>
       <nav aria-label="主要導覽">
-        <a href="../index.html#projects">作品</a>
-        <a href="#method">方法</a>
-        <a href="#findings">發現</a>
         <a href="https://github.com/dashubigtree" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/%E6%BE%8D%E8%90%AD-%E5%BE%90-bensonhsu" target="_blank" rel="noreferrer">LinkedIn ↗</a>
       </nav>
     </header>
 
@@ -28,7 +26,7 @@
         <p class="lead">以線上行為、訂單、RFM 分群與商品文案為線索，建立可解釋的分析流程，探索更貼近高價值客群的商品溝通方向。</p>
         <div class="case-notice" role="note">
           <strong>揭露說明</strong>
-          <p>本頁為課堂團隊案例的去識別化整理。原始資料、完整程式碼與原始簡報未公開；文中結論為分析洞察與後續驗證假設，並非已證實的商業成效。</p>
+          <p>本頁為課堂團隊案例的去識別化整理。原始資料與程式碼未公開；僅節錄未含組員身分與可識別資訊的簡報頁面。文中結論為分析洞察與後續驗證假設，並非已證實的商業成效。</p>
         </div>
       </section>
 
@@ -56,6 +54,25 @@
         <div class="metric-grid">
           <article><h3>類別提升度</h3><p>比較詞彙在高價值客群與非高價值客群主導商品中的出現比例；數值越高，代表該詞對高價值客群越具專屬性。</p><code>Lift = coverage_hv / coverage_non_hv</code></article>
           <article><h3>綜合評分</h3><p>將文字重要性與客群專屬性標準化後整合，作為關鍵字排序依據。</p><code>score = Z(TF-IDF) + Z(log Lift)</code></article>
+        </div>
+      </section>
+
+      <section class="case-section wrap evidence-section" aria-labelledby="evidence-title">
+        <p class="kicker">重點數據呈現</p>
+        <h2 id="evidence-title">將分析過程中的關鍵縮減，<br />回到可閱讀的數據證據。</h2>
+        <div class="case-gallery">
+          <figure>
+            <img src="../assets/case-studies/ecommerce-conversion-funnel.jpg" alt="真實轉換交叉比對：深度瀏覽商品 39,923 個，真實轉換商品 24,634 個。" loading="lazy" />
+            <figcaption><strong>真實轉換驗證。</strong> 在 39,923 筆深度瀏覽商品中，經由訂單完成、未退貨與時間順序交叉比對後，保留 24,634 筆真實轉換紀錄，降低純瀏覽雜訊。</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/case-studies/ecommerce-keyword-filtering.jpg" alt="關鍵字雙重門檻過濾：3,958 個候選詞縮減至 150 個，再保留 82 個核心詞。" loading="lazy" />
+            <figcaption><strong>關鍵字雙重篩選。</strong> 先以高價值文案覆蓋率篩出 150 個候選詞，再用 Lift 排除全網通用詞，最終留下 82 個更具高價值客群辨識度的核心詞。</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/case-studies/ecommerce-copy-appeals.jpg" alt="文案訴求與語意分析結果：功效說明覆蓋率 97.4%，成分透明 94.9%，問題解決 82.1%。" loading="lazy" />
+            <figcaption><strong>文案訴求覆蓋率。</strong> 在課堂案例的 LLM 結構化分析中，功效說明、成分透明與問題解決是覆蓋率最高的三類訴求，支持「理性資訊＋信任建立＋明確效益」的後續溝通假設。</figcaption>
+          </figure>
         </div>
       </section>
 

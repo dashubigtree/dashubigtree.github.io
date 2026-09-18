@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Agentic AI 與 RAG 課堂團隊案例：結合釣魚郵件偵測、LightRAG 與 MITRE ATT&CK 的可追溯分析流程。" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Agentic AI 與 RAG | dashubigtree</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到主要內容</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="../index.html" aria-label="回到作品集首頁">dashubigtree<span>.</span></a>
+      <nav aria-label="主要導覽">
+        <a href="https://github.com/dashubigtree" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/%E6%BE%8D%E8%90%AD-%E5%BE%90-bensonhsu" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section class="case-hero wrap">
+        <p class="kicker">生成式 AI · 資安 · 課堂團隊案例</p>
+        <p class="eyebrow">CASE STUDY 02</p>
+        <h1>把釣魚郵件判斷，<br />延伸成可追溯的威脅情資。</h1>
+        <p class="lead">將郵件特徵、分層機器學習偵測與 LightRAG 檢索整合為分析流程，讓結果不只回答是否可疑，也能對照 MITRE ATT&amp;CK 知識框架提供可追溯的判讀脈絡。</p>
+        <div class="case-notice" role="note">
+          <strong>揭露說明</strong>
+          <p>本頁為課堂團隊案例的整理，節錄未含組員身分或可識別資訊的簡報頁面。資料集為合成釣魚郵件資料；完整程式碼、部署設定與正式資安驗證均未公開。頁面中的模型數字僅反映課堂資料評測，不能代表真實環境的防護效能。</p>
+        </div>
+      </section>
+
+      <section class="case-summary wrap" aria-label="案例摘要">
+        <div><p class="summary-label">問題</p><p>郵件過濾結果需要可理解的風險脈絡與威脅情資對照，而不只是二元判斷。</p></div>
+        <div><p class="summary-label">設計</p><p>以 XGBoost 分層偵測釣魚風險、類型與嚴重度，再以 LightRAG 補上檢索與引用脈絡。</p></div>
+        <div><p class="summary-label">資料範圍</p><p>10,000 封合成郵件，以及 MITRE ATT&amp;CK Enterprise 知識庫。</p></div>
+      </section>
+
+      <section class="case-section wrap" aria-labelledby="method-title">
+        <p class="kicker">系統設計</p>
+        <h2 id="method-title">先辨識風險，<br />再讓判斷有可追溯的依據。</h2>
+        <ol class="method-list">
+          <li><div class="method-number">01</div><div><h3>郵件特徵與分層偵測</h3><p>從郵件文字、連結、寄件者與結構訊號建立 67 項特徵，依序處理是否為釣魚郵件、10 種釣魚類型與低／中／高嚴重度。</p></div></li>
+          <li><div class="method-number">02</div><div><h3>可解釋的分類訊號</h3><p>結合 SHAP 檢視個別特徵對判斷的影響，讓模型輸出可回到具體的文本與結構線索討論。</p></div></li>
+          <li><div class="method-number">03</div><div><h3>LightRAG 與 ATT&amp;CK 對照</h3><p>將郵件分析結果銜接至 MITRE ATT&amp;CK 知識圖譜，透過檢索提供技術、偵測規則與脈絡化說明。</p></div></li>
+        </ol>
+      </section>
+
+      <section class="case-section wrap evidence-section" aria-labelledby="evidence-title">
+        <p class="kicker">重點頁面與數據</p>
+        <h2 id="evidence-title">以模型、檢索與解釋，<br />串成同一個分析工作流。</h2>
+        <div class="case-gallery">
+          <figure>
+            <img src="../assets/case-studies/phishrag-architecture.jpg" alt="PhishRAG 四服務系統架構，包含 API、分類器、LightRAG 與資料服務。" loading="lazy" />
+            <figcaption><strong>四服務系統架構。</strong> 將郵件分析介面、分類模型、LightRAG 與資料儲存拆分，讓風險預測與威脅情資檢索可各自維護並串接。</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/case-studies/phishrag-pipeline.jpg" alt="PhishRAG 四層管線：67 項特徵、釣魚偵測、類型與嚴重度分類，以及 LightRAG 威脅情資對照。" loading="lazy" />
+            <figcaption><strong>分層偵測與情資對照。</strong> 流程由 67 項郵件特徵出發，依序判斷風險、類型與嚴重度，最後串接 LightRAG 與 MITRE ATT&amp;CK 脈絡。</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/case-studies/phishrag-evaluation.jpg" alt="XGBoost 三階段分層管線的課堂資料評測：二元偵測與十類分類為 100%，嚴重度分類準確率 87%、F1 macro 0.730。" loading="lazy" />
+            <figcaption><strong>課堂資料評測與限制。</strong> 簡報中的二元與十類分類結果為 100%；嚴重度分類為 87% accuracy、0.730 macro F1。因資料為合成資料，這些數字用於說明課堂原型的比較結果，不應視為真實場域效能。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section findings-section" aria-labelledby="findings-title">
+        <div class="wrap">
+          <p class="kicker">案例重點</p>
+          <h2 id="findings-title">把 AI 輸出從單一標籤，<br />帶回可檢視的決策脈絡。</h2>
+          <div class="finding-grid">
+            <article><span>01</span><h3>分層任務</h3><p>將風險、類型與嚴重度拆開處理，使後續檢索能接到更明確的威脅語境。</p></article>
+            <article><span>02</span><h3>可解釋特徵</h3><p>以 SHAP 檢視判斷方向，避免模型結果只剩下無法討論的分數或標籤。</p></article>
+            <article><span>03</span><h3>可追溯檢索</h3><p>以 ATT&amp;CK 知識框架補足模型之外的技術脈絡，讓回答可以回查至對應的情資內容。</p></article>
+          </div>
+          <blockquote>課堂原型的核心：<br /><strong>讓風險判斷、可解釋性與檢索脈絡彼此連接。</strong></blockquote>
+        </div>
+      </section>
+
+      <section class="case-cta wrap">
+        <p>這是一份課堂團隊案例的去識別化呈現。</p>
+        <a class="primary-link" href="../index.html#projects">回到精選作品 <span>←</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <p>dashubigtree · AI × Data × Sports Technology</p>
+      <a href="#content">回到頁首 ↑</a>
+    </footer>
+  </body>
+</html>

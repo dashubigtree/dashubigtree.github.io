@@ -34,6 +34,31 @@ class PortfolioSiteTests(unittest.TestCase):
         self.assertIn("case-studies/ecommerce-behavior-analysis.html", contents)
         self.assertIn("電商行為資料與文案分析", contents)
 
+    def test_ecommerce_case_study_includes_selected_data_visuals(self):
+        contents = (ROOT / "case-studies" / "ecommerce-behavior-analysis.html").read_text(encoding="utf-8")
+        asset_names = [
+            "ecommerce-conversion-funnel.jpg",
+            "ecommerce-keyword-filtering.jpg",
+            "ecommerce-copy-appeals.jpg",
+        ]
+
+        for asset_name in asset_names:
+            self.assertIn(asset_name, contents)
+            self.assertTrue((ROOT / "assets" / "case-studies" / asset_name).exists())
+        self.assertIn("重點數據呈現", contents)
+
+    def test_agentic_project_links_to_its_case_study(self):
+        home_contents = (ROOT / "index.html").read_text(encoding="utf-8")
+        case_page = ROOT / "case-studies" / "agentic-ai-rag.html"
+        case_contents = case_page.read_text(encoding="utf-8")
+
+        self.assertIn("case-studies/agentic-ai-rag.html", home_contents)
+        self.assertTrue(case_page.exists())
+        self.assertIn("課堂團隊案例", case_contents)
+        for asset_name in ["phishrag-architecture.jpg", "phishrag-pipeline.jpg", "phishrag-evaluation.jpg"]:
+            self.assertIn(asset_name, case_contents)
+            self.assertTrue((ROOT / "assets" / "case-studies" / asset_name).exists())
+
     def test_home_page_has_personal_introduction(self):
         contents = (ROOT / "index.html").read_text(encoding="utf-8")
 
