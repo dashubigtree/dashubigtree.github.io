@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="dashubigtree 的個人作品集：AI、資料分析與運動科技專案。" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231b4d3e'/%3E%3Cpath d='M9 9h7.5a6.5 6.5 0 1 1 0 13H9V9Zm4 3.5v6h3.2a3 3 0 1 0 0-6H13Z' fill='%23fff'/%3E%3C/svg%3E" />
+    <title>dashubigtree | AI × 資料 × 運動科技</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">跳到主要內容</a>
+    <header class="site-header wrap">
+      <a class="wordmark" href="#top" aria-label="回到頁首">dashubigtree<span>.</span></a>
+      <nav aria-label="主要導覽">
+        <a href="#projects">作品</a>
+        <a href="#about">關於</a>
+        <a href="https://github.com/dashubigtree" target="_blank" rel="noreferrer">GitHub ↗</a>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section class="intro wrap" id="top">
+        <p class="kicker">個人作品集</p>
+        <h1>用資料理解問題，<br />用技術把想法做出來。</h1>
+        <p class="lead">聚焦於 AI、電腦視覺、文字探勘與運動科技的實作與研究。</p>
+        <a class="primary-link" href="#projects">瀏覽精選作品 <span>↓</span></a>
+      </section>
+
+      <section class="projects wrap" id="projects" aria-labelledby="projects-title">
+        <div class="section-head">
+          <p class="kicker">精選作品</p>
+          <h2 id="projects-title">四個主題，<br />四種資料問題。</h2>
+        </div>
+
+        <div class="project-list">
+          <article class="project featured">
+            <div class="project-number">01</div>
+            <div class="project-body">
+              <p class="project-type">電腦視覺 · 運動資料</p>
+              <h3>Badminton CV</h3>
+              <p>把羽球影片轉成可分析的場上資料：結合人體姿態辨識、球場校正、軌跡視覺化與固定球員身分追蹤。</p>
+              <ul class="tags" aria-label="使用技術"><li>Python</li><li>YOLO Pose</li><li>ByteTrack</li></ul>
+            </div>
+            <a class="project-link" href="https://github.com/dashubigtree/badmintonCV" target="_blank" rel="noreferrer" aria-label="在 GitHub 查看 Badminton CV">查看專案 ↗</a>
+          </article>
+
+          <article class="project">
+            <div class="project-number">02</div>
+            <div class="project-body">
+              <p class="project-type">機器學習 · 運動感測</p>
+              <h3>AICUP 2025 Table Tennis</h3>
+              <p>從桌球揮拍的加速度、角速度資料擷取時域與頻域特徵，建立並比較 Random Forest 與 XGBoost 分類流程。</p>
+              <ul class="tags" aria-label="使用技術"><li>Python</li><li>Feature Engineering</li><li>XGBoost</li></ul>
+            </div>
+            <a class="project-link" href="https://github.com/dashubigtree/AICUP2025_tableTennis" target="_blank" rel="noreferrer" aria-label="在 GitHub 查看 AICUP 2025 Table Tennis">查看專案 ↗</a>
+          </article>
+
+          <article class="project">
+            <div class="project-number">03</div>
+            <div class="project-body">
+              <p class="project-type">生成式 AI · 資安</p>
+              <h3>Agentic AI &amp; RAG</h3>
+              <p>以 LightRAG、釣魚郵件資料與 MITRE ATT&amp;CK 知識框架，探索可檢索、可評估的資安問答與分析工作流。</p>
+              <ul class="tags" aria-label="使用技術"><li>LightRAG</li><li>GraphRAG</li><li>RAGAS</li></ul>
+            </div>
+            <a class="project-link" href="https://github.com/dashubigtree/114-2-Agentic-AI-class" target="_blank" rel="noreferrer" aria-label="在 GitHub 查看 Agentic AI 專案">查看專案 ↗</a>
+          </article>
+
+          <article class="project">
+            <div class="project-number">04</div>
+            <div class="project-body">
+              <p class="project-type">自然語言處理 · 文字探勘</p>
+              <h3>BERTopic 文字主題建模</h3>
+              <p>針對中文文本進行斷詞、嵌入、分群與主題解釋；透過停用詞、種子詞與參數調校，讓主題結果更可讀。</p>
+              <ul class="tags" aria-label="使用技術"><li>BERTopic</li><li>UMAP</li><li>HDBSCAN</li></ul>
+            </div>
+            <a class="project-link" href="https://github.com/dashubigtree/BERTopic" target="_blank" rel="noreferrer" aria-label="在 GitHub 查看 BERTopic 專案">查看專案 ↗</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="about wrap" id="about" aria-labelledby="about-title">
+        <div>
+          <p class="kicker">關於</p>
+          <h2 id="about-title">從資料到可以被理解的結果。</h2>
+        </div>
+        <div class="about-copy">
+          <p>我喜歡把不容易閱讀的影像、感測資料與文字，整理成可以觀察、驗證與使用的成果。這裡記錄我的公開作品，以及我持續累積的技術脈絡。</p>
+          <a class="text-link" href="https://github.com/dashubigtree" target="_blank" rel="noreferrer">前往 GitHub 個人頁 ↗</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <p>dashubigtree · AI × Data × Sports Technology</p>
+      <a href="#top">回到頁首 ↑</a>
+    </footer>
+  </body>
+</html>
