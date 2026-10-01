@@ -56,7 +56,7 @@
         <h2 id="architecture-title">把 UI 與核心邏輯分開，<br />讓每一層都能被驗證。</h2>
         <div class="case-gallery">
           <figure>
-            <img src="../assets/case-studies/thoughtdrop-architecture.svg" alt="ThoughtDrop 系統架構：使用者入口、SwiftUI 選單列 App、ThoughtCore 核心模組，以及外部辨識與 LLM 服務和本機 Obsidian vault。" loading="lazy" />
+            <img src="../assets/case-studies/thoughtdrop-architecture.svg?v=2" alt="ThoughtDrop 系統架構：使用者入口、SwiftUI 選單列 App、ThoughtCore 核心模組，以及外部辨識與 LLM 服務和本機 Obsidian vault。" loading="lazy" />
             <figcaption><strong>四層架構。</strong> 選單列 App 只負責錄音、排程與設定；與 UI 無關的 ThoughtCore 負責存檔、LLM 呼叫與 vault 路徑，因此能單獨做單元測試。外部服務各自獨立，可由設定切換；所有輸出都限定寫在 vault 的 <code>ThoughtDrop/</code> 子資料夾。</figcaption>
           </figure>
         </div>
@@ -67,7 +67,7 @@
         <h2 id="flow-title">錄音當下只有一個動作，<br />整理在傍晚自動完成。</h2>
         <div class="case-gallery">
           <figure>
-            <img src="../assets/case-studies/thoughtdrop-flow.svg" alt="ThoughtDrop 操作流程：開始錄音、停止、判斷是否達三秒、語音辨識與 LLM 校正；每日十七點收集逐字稿、LLM 整理、來源驗證並寫入 Obsidian。" loading="lazy" />
+            <img src="../assets/case-studies/thoughtdrop-flow.svg?v=2" alt="ThoughtDrop 操作流程：開始錄音、停止、判斷是否達三秒、語音辨識與 LLM 校正；每日十七點收集逐字稿、LLM 整理、來源驗證並寫入 Obsidian。" loading="lazy" />
             <figcaption><strong>兩段式流程。</strong> 使用者只需按下快捷鍵開始與停止；少於 3 秒的錄音視為誤觸，移到垃圾桶。其餘錄音先存檔再辨識、校正，每天 17:00 才統一整理。任何一步失敗都保留音檔與狀態，可從選單重試。</figcaption>
           </figure>
         </div>
