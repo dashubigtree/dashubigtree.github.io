@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 580" role="img" aria-labelledby="t d" font-family="Inter, 'Noto Sans TC', 'PingFang TC', sans-serif">
+  <title id="t">ThoughtDrop 系統架構圖</title>
+  <desc id="d">由上而下分為使用者入口、SwiftUI 選單列 App、與 UI 無關的 ThoughtCore 核心模組，以及外部服務與本機 Obsidian vault。</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#19634e" />
+    </marker>
+  </defs>
+  <rect width="920" height="580" fill="#ffffff" />
+
+  <!-- Layer 1 -->
+  <rect x="290" y="20" width="340" height="50" fill="#ffffff" stroke="#19634e" stroke-width="1.5" />
+  <text x="460" y="42" text-anchor="middle" font-size="15" font-weight="700" fill="#17231f">使用者入口</text>
+  <text x="460" y="60" text-anchor="middle" font-size="12" fill="#66716d">全域快捷鍵 ⌘⇧空白鍵 · 選單列錄音鈕</text>
+  <path d="M460 70V100" stroke="#19634e" stroke-width="1.5" marker-end="url(#a)" />
+
+  <!-- Layer 2 -->
+  <rect x="10" y="100" width="900" height="130" fill="#edf5f0" stroke="#d9dedb" />
+  <text x="30" y="124" font-size="12" font-weight="700" letter-spacing="1" fill="#19634e">THOUGHTDROP APP · SWIFTUI 選單列</text>
+  <g stroke="#19634e" stroke-width="1.2" fill="#ffffff">
+    <rect x="30" y="140" width="275" height="72" />
+    <rect x="320" y="140" width="275" height="72" />
+    <rect x="610" y="140" width="275" height="72" />
+  </g>
+  <g text-anchor="middle" fill="#17231f">
+    <text x="167.5" y="166" font-size="15" font-weight="700">錄音與辨識</text>
+    <text x="167.5" y="186" font-size="12" fill="#66716d">AVFoundation 錄音（每段 ≤ 55 秒）</text>
+    <text x="167.5" y="202" font-size="12" fill="#66716d">Apple Speech zh-TW（預設可純本機）</text>
+    <text x="457.5" y="166" font-size="15" font-weight="700">每日排程</text>
+    <text x="457.5" y="186" font-size="12" fill="#66716d">每天 17:00 觸發整理</text>
+    <text x="457.5" y="202" font-size="12" fill="#66716d">睡眠或退出後，喚醒時自動補做</text>
+    <text x="747.5" y="166" font-size="15" font-weight="700">設定與金鑰</text>
+    <text x="747.5" y="186" font-size="12" fill="#66716d">辨識來源 · LLM 來源 · 登入啟動</text>
+    <text x="747.5" y="202" font-size="12" fill="#66716d">API 金鑰僅存 macOS 鑰匙圈</text>
+  </g>
+  <path d="M460 230V260" stroke="#19634e" stroke-width="1.5" marker-end="url(#a)" />
+
+  <!-- Layer 3 -->
+  <rect x="10" y="260" width="900" height="130" fill="#ffffff" stroke="#19634e" stroke-width="1.5" />
+  <text x="30" y="284" font-size="12" font-weight="700" letter-spacing="1" fill="#19634e">THOUGHTCORE · 與 UI 無關，可單元測試</text>
+  <g stroke="#d9dedb" stroke-width="1.2" fill="#edf5f0">
+    <rect x="30" y="300" width="160" height="70" />
+    <rect x="205" y="300" width="160" height="70" />
+    <rect x="380" y="300" width="160" height="70" />
+    <rect x="555" y="300" width="160" height="70" />
+    <rect x="730" y="300" width="160" height="70" />
+  </g>
+  <g text-anchor="middle" fill="#17231f">
+    <text x="110" y="330" font-size="14" font-weight="700">GeminiTranscriber</text>
+    <text x="110" y="350" font-size="12" fill="#66716d">Gemini 語音轉寫</text>
+    <text x="285" y="330" font-size="14" font-weight="700">LLMClient</text>
+    <text x="285" y="350" font-size="12" fill="#66716d">校正與每日整理</text>
+    <text x="460" y="330" font-size="14" font-weight="700">CLITransport</text>
+    <text x="460" y="350" font-size="12" fill="#66716d">隔離呼叫官方 CLI</text>
+    <text x="635" y="330" font-size="14" font-weight="700">VaultLocation</text>
+    <text x="635" y="350" font-size="12" fill="#66716d">解析 vault 與搬移</text>
+    <text x="810" y="330" font-size="14" font-weight="700">Archive</text>
+    <text x="810" y="350" font-size="12" fill="#66716d">存檔與 Wiki 累積</text>
+  </g>
+
+  <!-- Layer 4 -->
+  <rect x="10" y="420" width="545" height="140" fill="#edf5f0" stroke="#d9dedb" />
+  <text x="30" y="444" font-size="12" font-weight="700" letter-spacing="1" fill="#19634e">外部服務</text>
+  <g stroke="#19634e" stroke-width="1.2" fill="#ffffff">
+    <rect x="35" y="462" width="150" height="72" />
+    <rect x="210" y="462" width="150" height="72" />
+    <rect x="385" y="462" width="150" height="72" />
+  </g>
+  <g text-anchor="middle" fill="#17231f">
+    <text x="110" y="492" font-size="14" font-weight="700">Gemini API</text>
+    <text x="110" y="512" font-size="12" fill="#66716d">選用的雲端辨識</text>
+    <text x="285" y="492" font-size="14" font-weight="700">OpenAI API</text>
+    <text x="285" y="512" font-size="12" fill="#66716d">API 模式（另計費）</text>
+    <text x="460" y="492" font-size="14" font-weight="700">官方 CLI 子程序</text>
+    <text x="460" y="512" font-size="12" fill="#66716d">Codex · Claude Code</text>
+  </g>
+
+  <rect x="590" y="420" width="320" height="140" fill="#ffffff" stroke="#19634e" stroke-width="1.5" />
+  <text x="610" y="444" font-size="12" font-weight="700" letter-spacing="1" fill="#19634e">本機 OBSIDIAN VAULT</text>
+  <rect x="610" y="462" width="280" height="72" fill="#edf5f0" stroke="#19634e" stroke-width="1.2" />
+  <g text-anchor="middle" fill="#17231f">
+    <text x="750" y="486" font-size="14" font-weight="700">ThoughtDrop/</text>
+    <text x="750" y="505" font-size="12" fill="#66716d">days/ 音檔 · 逐字稿 · 回顧 · 待辦</text>
+    <text x="750" y="523" font-size="12" fill="#66716d">wiki/generated 覆寫 · personal 不覆寫</text>
+  </g>
+
+  <!-- Connectors to layer 4 (drawn last so they stay above the group boxes) -->
+  <g stroke="#19634e" stroke-width="1.5" marker-end="url(#a)">
+    <path d="M110 370V460" />
+    <path d="M285 370V460" />
+    <path d="M460 370V460" />
+    <path d="M635 370V460" />
+    <path d="M810 370V460" />
+  </g>
+</svg>

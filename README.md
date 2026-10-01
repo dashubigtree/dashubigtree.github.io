@@ -1,6 +1,6 @@
 # dashubigtree 個人作品集
 
-這是獨立的個人經歷與公開作品集網站，展示六個專案：Badminton CV、電商行為資料與文案分析、Agentic AI & RAG、BERTopic、AICUP 2025 Table Tennis，以及 ThoughtDrop。
+這是獨立的個人經歷與公開作品集網站，展示六個專案（由新到舊）：ThoughtDrop、Badminton CV、電商行為資料與文案分析、Agentic AI & RAG、BERTopic，以及 AICUP 2025 Table Tennis。
 
 網站檔案位於專案根目錄：
 

@@ -111,15 +111,28 @@ class PortfolioSiteTests(unittest.TestCase):
         self.assertIn("<h3>拾念 ThoughtDrop</h3>", contents)
         self.assertIn("https://github.com/dashubigtree/ThoughtDrop", contents)
 
+    def test_thoughtdrop_project_links_to_its_case_study(self):
+        home_contents = (ROOT / "index.html").read_text(encoding="utf-8")
+        case_page = ROOT / "case-studies" / "thoughtdrop.html"
+        case_contents = case_page.read_text(encoding="utf-8")
+
+        self.assertIn("case-studies/thoughtdrop.html", home_contents)
+        self.assertIn("../index.html", case_contents)
+        for heading in ["開發動機", "系統架構", "操作流程"]:
+            self.assertIn(heading, case_contents)
+        for asset_name in ["thoughtdrop-architecture.svg", "thoughtdrop-flow.svg"]:
+            self.assertIn(asset_name, case_contents)
+            self.assertTrue((ROOT / "assets" / "case-studies" / asset_name).exists())
+
     def test_projects_appear_in_the_intended_order(self):
         contents = (ROOT / "index.html").read_text(encoding="utf-8")
         expected_titles = [
+            "拾念 ThoughtDrop",
             "Badminton CV",
             "電商行為資料與文案分析",
             "Agentic AI &amp; RAG",
             "BERTopic 文字主題建模",
             "AICUP 2025 Table Tennis",
-            "拾念 ThoughtDrop",
         ]
 
         positions = [contents.index(title) for title in expected_titles]

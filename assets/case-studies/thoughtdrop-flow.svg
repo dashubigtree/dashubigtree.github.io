@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 560" role="img" aria-labelledby="t d" font-family="Inter, 'Noto Sans TC', 'PingFang TC', sans-serif">
+  <title id="t">ThoughtDrop 操作流程圖</title>
+  <desc id="d">上排為錄音當下的流程：開始錄音、停止、判斷是否達 3 秒、語音辨識、LLM 校正並存檔。下排為每日 17:00 整理：收集逐字稿、LLM 整理、來源驗證、寫入 Obsidian vault。</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#19634e" />
+    </marker>
+    <marker id="w" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#9a5b00" />
+    </marker>
+  </defs>
+  <rect width="940" height="560" fill="#ffffff" />
+
+  <!-- Phase A -->
+  <text x="20" y="28" font-size="12" font-weight="700" letter-spacing="1" fill="#19634e">① 錄音當下 · 零摩擦捕捉</text>
+  <g stroke="#19634e" stroke-width="1.2" fill="#ffffff">
+    <rect x="20" y="50" width="150" height="70" />
+    <rect x="207.5" y="50" width="150" height="70" />
+    <rect x="582.5" y="50" width="150" height="70" />
+    <rect x="770" y="50" width="150" height="70" fill="#edf5f0" />
+  </g>
+  <polygon points="470,40 545,85 470,130 395,85" fill="#ffffff" stroke="#19634e" stroke-width="1.2" />
+  <g text-anchor="middle" fill="#17231f">
+    <text x="95" y="80" font-size="15" font-weight="700">開始錄音</text>
+    <text x="95" y="100" font-size="12" fill="#66716d">⌘⇧空白鍵或錄音鈕</text>
+    <text x="282.5" y="80" font-size="15" font-weight="700">停止錄音</text>
+    <text x="282.5" y="100" font-size="12" fill="#66716d">再按一次，或滿 55 秒</text>
+    <text x="470" y="82" font-size="14" font-weight="700">長度 ≥ 3 秒？</text>
+    <text x="657.5" y="80" font-size="15" font-weight="700">語音辨識</text>
+    <text x="657.5" y="100" font-size="12" fill="#66716d">Apple 本機 / Gemini</text>
+    <text x="845" y="80" font-size="15" font-weight="700">LLM 校正</text>
+    <text x="845" y="100" font-size="12" fill="#66716d">原文與校正版並存</text>
+  </g>
+  <g stroke="#19634e" stroke-width="1.5" marker-end="url(#a)">
+    <path d="M170 85H207.5" />
+    <path d="M357.5 85H395" />
+    <path d="M545 85H582.5" />
+    <path d="M732.5 85H770" />
+  </g>
+  <text x="564" y="76" text-anchor="middle" font-size="12" font-weight="700" fill="#19634e">是</text>
+
+  <!-- No branch -->
+  <path d="M470 130V170" stroke="#9a5b00" stroke-width="1.5" marker-end="url(#w)" />
+  <text x="482" y="153" font-size="12" font-weight="700" fill="#9a5b00">否</text>
+  <rect x="385" y="170" width="170" height="48" fill="#ffffff" stroke="#9a5b00" stroke-width="1.2" />
+  <g text-anchor="middle">
+    <text x="470" y="191" font-size="13" font-weight="700" fill="#17231f">視為誤觸</text>
+    <text x="470" y="208" font-size="12" fill="#66716d">移到垃圾桶，可救回</text>
+  </g>
+
+  <!-- Hand-off -->
+  <path d="M845 120V262H115V318" fill="none" stroke="#19634e" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#a)" />
+  <text x="480" y="254" text-anchor="middle" font-size="12" fill="#66716d">逐字稿存入當日資料夾，累積一整天</text>
+
+  <!-- Phase B -->
+  <text x="20" y="300" font-size="12" font-weight="700" letter-spacing="1" fill="#19634e">② 每日 17:00 · 自動整理（睡眠後喚醒會補做）</text>
+  <g stroke="#19634e" stroke-width="1.2" fill="#ffffff">
+    <rect x="20" y="320" width="190" height="84" />
+    <rect x="256.7" y="320" width="190" height="84" />
+    <rect x="493.3" y="320" width="190" height="84" />
+    <rect x="730" y="320" width="190" height="84" fill="#edf5f0" />
+  </g>
+  <g text-anchor="middle" fill="#17231f">
+    <text x="115" y="352" font-size="15" font-weight="700">收集當日逐字稿</text>
+    <text x="115" y="374" font-size="12" fill="#66716d">正在錄音或處理時暫緩</text>
+    <text x="115" y="391" font-size="12" fill="#66716d">失敗者標註缺少幾筆</text>
+    <text x="351.7" y="352" font-size="15" font-weight="700">LLM 整理</text>
+    <text x="351.7" y="374" font-size="12" fill="#66716d">一日回顧 · 明日待辦</text>
+    <text x="351.7" y="391" font-size="12" fill="#66716d">主題 Wiki 條目</text>
+    <text x="588.3" y="352" font-size="15" font-weight="700">來源驗證</text>
+    <text x="588.3" y="374" font-size="12" fill="#66716d">每則條目須引用真實存在</text>
+    <text x="588.3" y="391" font-size="12" fill="#66716d">的逐字稿 id</text>
+    <text x="825" y="352" font-size="15" font-weight="700">寫入 Obsidian</text>
+    <text x="825" y="374" font-size="12" fill="#66716d">YAML 屬性 + [[wikilink]]</text>
+    <text x="825" y="391" font-size="12" fill="#66716d">personal 筆記永不覆寫</text>
+  </g>
+  <g stroke="#19634e" stroke-width="1.5" marker-end="url(#a)">
+    <path d="M210 362H256.7" />
+    <path d="M446.7 362H493.3" />
+    <path d="M683.3 362H730" />
+  </g>
+  <path d="M588.3 404V438" stroke="#9a5b00" stroke-width="1.5" marker-end="url(#w)" />
+  <text x="600" y="426" font-size="12" font-weight="700" fill="#9a5b00">未通過</text>
+  <text x="588.3" y="456" text-anchor="middle" font-size="12" fill="#9a5b00">不寫入</text>
+
+  <!-- Failure banner -->
+  <rect x="20" y="486" width="900" height="52" fill="#ffffff" stroke="#9a5b00" stroke-width="1.2" stroke-dasharray="5 4" />
+  <g text-anchor="middle">
+    <text x="470" y="508" font-size="13" font-weight="700" fill="#17231f">失敗不丟資料</text>
+    <text x="470" y="526" font-size="12" fill="#66716d">先存音檔，再辨識、再校正；任何一步失敗都保留原始資料，可從選單「重試未完成筆記」。</text>
+  </g>
+</svg>
