@@ -105,6 +105,12 @@ class PortfolioSiteTests(unittest.TestCase):
         self.assertIn('class="project-status"', contents)
         self.assertIn('專案狀態：進行中', contents)
 
+    def test_thoughtdrop_project_links_to_its_repository(self):
+        contents = (ROOT / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn("<h3>拾念 ThoughtDrop</h3>", contents)
+        self.assertIn("https://github.com/dashubigtree/ThoughtDrop", contents)
+
     def test_projects_appear_in_the_intended_order(self):
         contents = (ROOT / "index.html").read_text(encoding="utf-8")
         expected_titles = [
@@ -113,6 +119,7 @@ class PortfolioSiteTests(unittest.TestCase):
             "Agentic AI &amp; RAG",
             "BERTopic 文字主題建模",
             "AICUP 2025 Table Tennis",
+            "拾念 ThoughtDrop",
         ]
 
         positions = [contents.index(title) for title in expected_titles]
