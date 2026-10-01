@@ -24,8 +24,8 @@
   </g>
   <g text-anchor="middle" fill="#17231f">
     <text x="167.5" y="166" font-size="15" font-weight="700">錄音與辨識</text>
-    <text x="167.5" y="186" font-size="12" fill="#66716d">AVFoundation 錄音（每段 ≤ 55 秒）</text>
-    <text x="167.5" y="202" font-size="12" fill="#66716d">Apple Speech zh-TW（預設可純本機）</text>
+    <text x="167.5" y="186" font-size="12" fill="#66716d">麥克風錄音（每段最長 55 秒）</text>
+    <text x="167.5" y="202" font-size="12" fill="#66716d">Apple 語音辨識，繁體中文（可純本機）</text>
     <text x="457.5" y="166" font-size="15" font-weight="700">每日排程</text>
     <text x="457.5" y="186" font-size="12" fill="#66716d">每天 17:00 觸發整理</text>
     <text x="457.5" y="202" font-size="12" fill="#66716d">睡眠或退出後，喚醒時自動補做</text>
@@ -76,7 +76,7 @@
   </g>
 
   <rect x="590" y="420" width="320" height="140" fill="#ffffff" stroke="#19634e" stroke-width="1.5" />
-  <text x="610" y="444" font-size="12" font-weight="700" letter-spacing="1" fill="#19634e">本機 OBSIDIAN VAULT</text>
+  <text x="890" y="444" text-anchor="end" font-size="12" font-weight="700" letter-spacing="1" fill="#19634e">本機 OBSIDIAN VAULT</text>
   <rect x="610" y="462" width="280" height="72" fill="#edf5f0" stroke="#19634e" stroke-width="1.2" />
   <g text-anchor="middle" fill="#17231f">
     <text x="750" y="486" font-size="14" font-weight="700">ThoughtDrop/</text>
